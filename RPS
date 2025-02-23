@@ -1,0 +1,31 @@
+import random
+
+def get_computer_choice():
+    choices = ['R', 'P', 'S']
+    return random.choice(choices)
+
+def determine_winner(user_choice, computer_choice):
+    if user_choice == computer_choice:
+        print("It's a tie!")
+    elif (user_choice == 'R' and computer_choice == 'S') or \
+         (user_choice == 'S' and computer_choice == 'P') or \
+         (user_choice == 'P' and computer_choice == 'R'):
+        print("You win!")
+    else:
+        print("You lose!")
+
+def main():
+    play_again = 'Y'
+    while play_again.upper() == 'Y':
+        user_choice = input("Enter your choice (R for Rock, P for Paper, S for Scissors): ").upper()
+        computer_choice = get_computer_choice()
+
+        print(f"You chose: {user_choice}")
+        print(f"Computer chose: {computer_choice}")
+
+        determine_winner(user_choice, computer_choice)
+
+        play_again = input("Do you want to play again? (Y/N): ").upper()
+
+if __name__ == "__main__":
+    main()
